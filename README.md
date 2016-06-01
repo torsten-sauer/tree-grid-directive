@@ -123,8 +123,11 @@ Example:
       }
     ];
 
+Should you wish to define the col_defs dynamically (e.g. if the column names are coming from a service) you can follow the instructions specified in [this issue] (https://github.com/khan4019/tree-grid-directive/issues/51).	
+	
 **expanding_property:** this is the property of the objects in `tree_data` where you want to put the ability to expand and collapse.
-This accepts an array of the same format as col_defs, allowing for sorting & filtering on the expanding field.
+This accepts an array of the same format as col_defs, allowing for sorting & filtering on the expanding field. This now includes the ability
+to provide a cellTemplate (but not a cellTemplateScope).
 
 **my_tree:** you can use `tree-control` to use expand all and collapse all. Check it out in the link provided for demo.
 
@@ -266,7 +269,8 @@ Later, execute the query using promises and update the `tree_data` value with th
 
 If for any reason you want to use a custom HTML to show a specific cell, for showing an image, colorpicker,
 or something else, you can use the `cellTemplate` option in the `col-defs` array, just use
-`{{ row.branch[col.field] }}` as the placeholder for the value of the cell anywhere in the HTML.
+`{{ row.branch[col.field] }}` as the placeholder for the value of the cell anywhere in the HTML - use `{{ row.branch[expandingProperty.field] }}`
+if providing a template for the expanding property..
 
 Example:
 
@@ -300,4 +304,6 @@ and will work as expected.
 ## Release History
  Version | Date | Change summary
  ------|---------|--------------
- 0.1.0 | May 13 2016 | initial release
+ 0.3.0 | May 30 2016 | synchronise NPM and bower releases properly
+ 0.2.0 | May 24 2016 | various code fixes
+ 0.1.0 | May 13 2016 | initial NPM release
